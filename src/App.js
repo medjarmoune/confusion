@@ -1,6 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Navbar, NavbarBrand } from 'reactstrap';
+import Menu from './components/MenuComponent';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { DISHES } from './shared/dishes'
 
 function App() {
   return (
