@@ -1,17 +1,17 @@
 export const LEADERS = [
     {
       id: 0,
-      name: 'Peter Pan',
-      image: '/assets/images/alberto.png',
+      name: 'JARMOUNE Mohamed',
+      image: '/assets/images/medox.jpg',
       designation: 'Chief Epicurious Officer',
       abbr: 'CEO',
-      featured: true,
+      featured: false,
       description: "Our CEO, Peter, credits his hardworking East Asian immigrant parents who undertook the arduous journey to the shores of America with the intention of giving their children the best future. His mother's wizardy in the kitchen whipping up the tastiest dishes with whatever is available inexpensively at the supermarket, was his first inspiration to create the fusion cuisines for which The Frying Pan became well known. He brings his zeal for fusion cuisines to this restaurant, pioneering cross-cultural culinary connections."
     },
     {
       id: 1,
-      name: 'Dhanasekaran Witherspoon',
-      image: '/assets/images/alberto.png',
+      name: 'JARMOUNE Mohamed',
+      image: '/assets/images/medox.jpg',
       designation: 'Chief Food Officer',
       abbr: 'CFO',
         featured: false,
@@ -19,8 +19,8 @@ export const LEADERS = [
     },
     {
       id: 2,
-      name: 'Agumbe Tang',
-      image: '/assets/images/alberto.png',
+      name: 'JARMOUNE Mohamed',
+      image: '/assets/images/medox.jpg',
       designation: 'Chief Taste Officer',
       abbr: 'CTO',
         featured: false,
@@ -28,8 +28,8 @@ export const LEADERS = [
     },
     {
       id: 3,
-      name: 'Alberto Somayya',
-      image: '/assets/images/alberto.png',
+      name: 'JARMOUNE Mohamed',
+      image: '/assets/images/medox.jpg',
       designation: 'Executive Chef',
       abbr: 'EC',
       featured: true,

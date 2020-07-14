@@ -1,5 +1,4 @@
 import React from 'react';
-import { DISHES } from '../shared/dishes';
 import {Card, CardImg, CardTitle, CardBody, CardSubtitle, CardText} from 'reactstrap';
 
 function RenderCard({item}){
