@@ -70,9 +70,7 @@ class Contact extends Component {
             
         return errors;
     }
-    resetform=()=>{
-        document.getElementById("myForm").reset();
-    }
+   
     render(){
 
         const errors=this.validate(this.state.firstname, this.state.lastname, this.state.telnum, this.state.email);
@@ -120,7 +118,7 @@ class Contact extends Component {
                         <h3>Send Us Your Feedback</h3>
                     </div>
                     <div className="col-12 col-md-9">
-                        <Form onSubmit={this.handleSubmit} id="myForm" onReset={this.resetform} >
+                        <Form onSubmit={this.handleSubmit}>
                             <FormGroup row>
                                 <Label htmlFor="firstname" md={2}> First Name</Label>
                                 <Col md={10}>
