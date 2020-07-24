@@ -3,28 +3,40 @@ import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'r
 import { Link } from 'react-router-dom';
 import { baseUrl } from '../shared/baseUrl';
 import { Loading } from './LoadingComponent';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
 function RenderLeader({leader}){
    
     
     return (
-            <Media>
-                <Media>
-                    <Media width="150" height="150" src={baseUrl + leader.image} alt={leader.name} />
-                </Media>
-                <Media body className="ml-5">
-                    <Media heading>
-                    {/* Media heading */}
-                    {leader.name}
-                    </Media>
-                    <p>
-                    {leader.designation}
-                    </p>
-                    {leader.description}
-                </Media>
+        
 
+            <Media>
+                <FadeTransform
+                        in
+                        transformProps={{
+                            exitTransform: 'scale(0.5) translateY(-50%)'
+                        }}>
+                    <Media>
+                        <Media width="150" height="150" src={baseUrl + leader.image} alt={leader.name} />
+                    </Media>
+                </FadeTransform>
+                <Stagger in>
+                    <Fade in>
+                        <Media body className="ml-5">
+                            <Media heading>
+                            {/* Media heading */}
+                            {leader.name}
+                            </Media>
+                            <p>
+                            {leader.designation}
+                            </p>
+                            {leader.description}
+                        </Media>
+                    </Fade>
+                </Stagger>
              </Media>
-           
+        
         
       );
 }
@@ -34,11 +46,12 @@ const About=(props)=> {
 
     const leaders = props.leaders.leaders.map((leader) => {
         return (
-            
-            <div>
-                <RenderLeader leader={leader}/>
-                <br/><br/>
-            </div>
+
+                <div>
+                    <RenderLeader leader={leader}/>
+                    <br/><br/>
+                </div>
+
         );
     });
     if (props.leaders.isLoading) {
@@ -118,10 +131,7 @@ const About=(props)=> {
                     <br/>
                 </div>
                 <div className="col-12 ">
-                   
                         {leaders}
-                        
-                   
                 </div>
             </div>
         </div>

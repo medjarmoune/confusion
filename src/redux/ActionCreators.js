@@ -1,11 +1,56 @@
 import * as ActionTypes from './ActionTypes';
-// import { DISHES } from '../shared/dishes';
+
 import { baseUrl } from '../shared/baseUrl'
 
 export const addComment = (comment) => ({
     type: ActionTypes.ADD_COMMENT,
     payload: comment
 });
+// export const addFeedback = (feedback) => ({
+//     type: ActionTypes.ADD_FEEDBACK,
+//     payload: feedback
+// });
+export const postFeedback=(firstname, lastname, telnum, email, agree, contactType, message ) => (dispatch) => {
+
+    const newFeddback = {
+        firstname:firstname ,
+        lastname: lastname,
+        telnum: telnum,
+        email: email,
+        agree: agree,
+        contactType: contactType,
+        message: message,
+    }
+    newFeddback.date = new Date().toISOString();
+    
+    return fetch(baseUrl + 'feedback',{
+        method:'POST',
+        body: JSON.stringify(newFeddback),
+        headers: {
+            'Content-Type':'application/json'
+        },
+        credentials:'same-origin'
+    })
+    .then(response => {
+        if(response.ok){
+            return response;
+        }
+        else{
+            var error = new Error('Error ' + response.status +': ' + response.statusText);
+            error.response=response;
+            throw error;
+        }
+    },
+    error =>{
+        var errmess = new Error(error.message);
+        throw errmess;
+    })
+    .then(response => response.json())
+    // .then(response => dispatch(addFeedback(response)))
+    .catch(error => {console.log('Post Feedback ' + error.message);
+    alert('Your feedback could not posted\nError: '+error.message);
+    })
+}
 export const postComment = (dishId, rating, author, comment) => (dispatch) => {
 
     const newComment = {
@@ -14,6 +59,7 @@ export const postComment = (dishId, rating, author, comment) => (dispatch) => {
         author: author,
         comment: comment
     }
+    console.log('postComment')
     newComment.date = new Date().toISOString();
     return fetch(baseUrl + 'comments',{
         method:'POST',
